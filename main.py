@@ -11,7 +11,7 @@ parser.add_argument('-o', '--output', type=str, help='Der Pfad, in dem die Ausga
 args = parser.parse_args()
 
 if args.file is None:
-    file_path = input('Bitte geben Sie den Dateipfad ein: ')
+    file_path = input('Bitte geben Sie den vollständigen Dateipfad ein: ')
 else:
     file_path = args.file
 
@@ -32,4 +32,4 @@ input_image = Image.open(file_path)
 
 output = remove(input_image)
 
-output.save(output_path)
+output.save(output_path + os.sep + "bg_removed" + ".png", 'PNG')
